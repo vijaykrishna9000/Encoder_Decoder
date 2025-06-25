@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cipher/style.css' %}">
+    <style>
+        body
+        {
+            body{
+            
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 400px;
+            border-radius: 12px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <h1>Caesar Cipher</h1>
+    <form method="post">
+        {% csrf_token %}
+    <label for="direction">Choose Action:</label> 
+    <select name="direction" id=""direction>
+        <option value="Encode">Encode</option>
+        <option value="Decode">Decode</option>
+    </select><br><br>
+    <label for="Text">Text:</label>
+    <input type="text" name="text" id="text" required><br><br>
+    <label for="Shift bits">ShiftBits</label>
+    <input type="number" name="shift" id="shift" required><br><br>
+    <label><button>Submit</button></label>
+</form>
+    {% if result %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
